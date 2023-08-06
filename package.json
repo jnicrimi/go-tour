@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.md": "markdownlint --ignore node_modules .",
+    "**/*.{yaml,yml,yamllint}": "yamllint --strict ."
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3"
+  }
+}
