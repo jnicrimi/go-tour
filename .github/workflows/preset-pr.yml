@@ -1,0 +1,14 @@
+---
+
+name: Preset PR
+on:
+  pull_request:
+    types: [opened, reopened]
+run-name: ${{ github.workflow }} (${{ github.ref_name }})
+jobs:
+  call-preset-pr:
+    uses: jnicrimi/github-actions-shared-workflows/.github/workflows/called-preset-pr.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+      slack_id: ${{ secrets.SLACK_ID }}
+      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
