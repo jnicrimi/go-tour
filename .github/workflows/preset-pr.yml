@@ -5,6 +5,9 @@ on:
   pull_request:
     types: [opened, reopened]
 run-name: ${{ github.workflow }} (${{ github.ref_name }})
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   call-preset-pr:
     uses: jnicrimi/github-actions-shared-workflows/.github/workflows/called-preset-pr.yml@main
