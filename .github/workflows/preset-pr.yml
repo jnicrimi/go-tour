@@ -1,6 +1,6 @@
 ---
 
-name: Preset PR
+name: preset-pr
 on:
   pull_request:
     types: [opened, reopened]
