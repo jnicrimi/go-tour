@@ -1,0 +1,16 @@
+---
+
+name: dependabot-auto-merge
+on: pull_request_target
+permissions:
+  pull-requests: write
+  contents: write
+run-name: ${{ github.workflow }} (${{ github.ref_name }})
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  call-dependabot-auto-merge:
+    uses: jnicrimi/github-actions-shared-workflows/.github/workflows/called-dependabot-auto-merge.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
