@@ -1,0 +1,24 @@
+---
+
+name: ai-pr-reviewer
+permissions:
+  contents: read
+  pull-requests: write
+on:
+  pull_request:
+    types: [labeled]
+  pull_request_review_comment:
+    types: [created]
+run-name: ${{ github.workflow }} (${{ github.ref_name }}) / ${{ github.event_name }}
+concurrency:
+  group:
+    ${{ github.repository }}-${{ github.event.number || github.head_ref ||
+    github.sha }}-${{ github.workflow }}-${{ github.event_name ==
+    'pull_request_review_comment' && 'pr_comment' || 'pr' }}
+  cancel-in-progress: ${{ github.event_name != 'pull_request_review_comment' }}
+jobs:
+  call-ai-pr-reviewer:
+    uses: jnicrimi/github-actions-shared-workflows/.github/workflows/called-ai-pr-reviewer.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+      openai_api_key: ${{ secrets.OPENAI_API_KEY }}
