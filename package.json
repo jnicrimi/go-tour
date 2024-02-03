@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
     "**/*.md": "markdownlint --ignore node_modules .",
