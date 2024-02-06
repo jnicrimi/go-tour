@@ -10,6 +10,6 @@
     "@commitlint/cli": "^18.5.0",
     "@commitlint/config-conventional": "^18.4.4",
     "husky": "^9.0.10",
-    "lint-staged": "^15.2.1"
+    "lint-staged": "^15.2.2"
   }
 }
