@@ -4,8 +4,7 @@
   },
   "lint-staged": {
     "**/*.md": "markdownlint --ignore node_modules .",
-    "**/*.{yaml,yml,yamllint}": "yamllint --strict .",
-    "**/*.go": "golangci-lint run"
+    "**/*.{yaml,yml,yamllint}": "yamllint --strict ."
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",

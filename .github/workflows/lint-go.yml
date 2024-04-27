@@ -1,0 +1,23 @@
+---
+
+name: lint-go
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+run-name: ${{ github.workflow }} (${{ github.ref_name }})
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.21
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v5
+        with:
+          version: latest
