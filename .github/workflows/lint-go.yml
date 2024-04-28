@@ -8,6 +8,9 @@ run-name: ${{ github.workflow }} (${{ github.ref_name }})
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+permissions:
+  contents: read
+  pull-requests: read
 jobs:
   lint:
     runs-on: ubuntu-latest
