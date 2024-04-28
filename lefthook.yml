@@ -1,0 +1,20 @@
+---
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit $1
+
+pre-commit:
+  commands:
+    scan-git-secrets:
+      run: git secrets --scan
+    markdownlint:
+      glob: "*.md"
+      run: markdownlint {staged_files}
+    yamllint:
+      glob: "*.{yml,yaml}"
+      run: yamllint --strict {staged_files}
+    golangci-lint:
+      glob: "*.go"
+      run: golangci-lint run {staged_files}
