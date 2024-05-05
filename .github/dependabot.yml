@@ -18,3 +18,11 @@ updates:
       - 'jnicrimi'
     reviewers:
       - 'jnicrimi'
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - 'jnicrimi'
+    reviewers:
+      - 'jnicrimi'
