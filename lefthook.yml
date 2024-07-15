@@ -6,6 +6,7 @@ commit-msg:
       run: npx commitlint --edit $1
 
 pre-commit:
+  parallel: true
   commands:
     scan-git-secrets:
       run: git secrets --scan
